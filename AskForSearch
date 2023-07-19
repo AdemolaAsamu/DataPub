@@ -1,0 +1,19 @@
+import pandas as pd
+
+# Assuming 'df' is your DataFrame containing the 'FileName' and 'Deby' columns
+
+# Ask the user for the value to search for in the 'FileName' column
+search_value = input("Enter the value to search for in the 'FileName' column: ")
+
+# Filter the DataFrame based on the user-provided search value
+filtered_df = df[df['FileName'] == search_value]['Deby']
+
+# Split the concatenated string in each cell by '; ' (semicolon followed by space)
+filtered_df = filtered_df.str.split("; ")
+
+# Use 'explode' to list out the values individually
+filtered_df = filtered_df.explode()
+
+# Print the result with each value on a separate line
+for value in filtered_df:
+    print(value)
