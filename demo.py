@@ -9,6 +9,7 @@ import dash
 from dash import dcc, html
 from flask import Flask
 import dash_bootstrap_components as dbc
+#conda install -c conda-forge dash-bootstrap-components
 
 
 # Initiate the App
