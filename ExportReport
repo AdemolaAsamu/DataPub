@@ -1,0 +1,24 @@
+def write_report_to_word(report_data, output_filename):
+    # Create a new Word document
+    doc = Document()
+
+    # Add a title to the document
+    doc.add_heading('Report Title', level=0)
+
+    # Add a section with some content (you can customize this part based on your report_data)
+    doc.add_heading('Section 1', level=1)
+    doc.add_paragraph('This is the content of Section 1.')
+
+    doc.add_heading('Section 2', level=1)
+    doc.add_paragraph('This is the content of Section 2.')
+
+    # You can also add tables, images, and more complex content as needed
+
+    # Save the document to the specified file
+    doc.save(output_filename)
+
+# Example usage:
+report_data = {}  # Replace this with your actual report data
+output_filename = 'report_output.docx'
+
+write_report_to_word(report_data, output_filename)
