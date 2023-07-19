@@ -7,3 +7,27 @@ def record_drw_links(Dos, df_ILink):
             Dos.loc[index, 'DR-ILINK(drw)'] = value
             
 record_drw_links(Dos, df_ILink)
+
+#Modification
+
+def record_drw_links(Dos, df_ILink):
+    for index, SearchParaAdvLower in enumerate(Dos['DocumentRecap']):
+        searchpara = SearchParaAdvLower
+        match = df_ILink[df_ILink['Version'] == searchpara]
+        if not match.empty:
+            # Check if any of the matches end with '.drw'
+            drw_match = match[match['Colonne3'].str.endswith('.drw')]
+            if not drw_match.empty:
+                # If there's a '.drw' match, use its value
+                value = drw_match['Colonne3'].values[0]
+            else:
+                # If there's no '.drw' match, set None or any default value
+                value = None
+        else:
+            # If there's no match at all, set None or any default value
+            value = None
+        Dos.loc[index, 'DR-ILINK(drw)'] = value
+            
+# Example usage:
+# record_drw_links(Dos, df_ILink)
+
